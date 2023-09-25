@@ -1,0 +1,39 @@
+
+.photogal {
+    background-color: #3083FF;
+    text-align: left; /* Изменено на "left" */
+    padding: 20px 0;
+}
+
+.photogal h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    margin-left: 120px; /* Добавлено для отступа слева */
+    margin-right: 150px; /* Добавлено для отступа справа */
+}
+
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 80px; /* Добавлено для отступа слева */
+    margin-right: 80px; /* Добавлено для отступа справа */
+    padding: 20px 0;
+
+}
+
+.photo {
+    width: 350px;
+    height: 350px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
