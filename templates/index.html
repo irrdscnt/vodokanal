@@ -10,28 +10,16 @@
     <header class="header d-flex">
       <div class="logo">
         <a
-          href="file:///Users/altynaykemelova/Desktop/3%20SEM/WEB/vodokanal/index.html"
+          href="{% url 'main_page' %}"
         >
           <img src="/images/svg/logo.svg" alt="logo" />
         </a>
       </div>
-      <!-- <nav class="nav"> -->
       <ul class="header__list d-flex">
-        <li>
-          <a href="file:///Users/altynaykemelova/Desktop/3%20SEM/WEB/vodokanal/article.html">Новости</a>
-        </li>
-        <li>
-          <a href="file:///Users/altynaykemelova/Desktop/3%20SEM/WEB/vodokanal/job.html">Вакансии</a>
-        </li>
-        <li>
-          <a href="file:///Users/altynaykemelova/Desktop/3%20SEM/WEB/vodokanal/contacts.html">Контакты</a>
-        </li>
-        <li>
-          <a
-            href="file:///Users/altynaykemelova/Desktop/3%20SEM/WEB/vodokanal/gallery.html"
-            >Фотогалерея</a
-          >
-        </li>
+        <li><a href="{% url 'news_list' %}">Новости</a></li>
+        <li><a href="{% url 'job_list' %}">Вакансии</a></li>
+        <li><a href="{% url 'contacts_page' %}">Контакты</a></li>
+        <li><a href="{% url 'photo_gallery' %}">Фотогалерея</a></li>
         <li class="header__list-item">
           <a class="list-item" href="">Абонентский отдел</a>
           <ul>
@@ -40,12 +28,6 @@
           </ul>
         </li>
       </ul>
-      <!-- </nav> -->
-      <!-- <div class="burger-menu">
-        <a href="">
-          <img src="./images/svg/burger-menu.svg" alt="burger-menu" />
-        </a>
-      </div> -->
     </header>
     <div class="wrapper">
       <section class="water d-flex">

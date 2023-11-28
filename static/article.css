@@ -12,7 +12,7 @@
     font-size: 26px;
     line-height: 24px;
     color: #253C68;
-    z-index: 2;
+
 }
 
 .item {
@@ -26,7 +26,7 @@
 }
 
 #date {
-    width: 9.96px;
+    width: 150px;
     margin-left: 0px;
     height: 19.17px;
     top: 746px;
@@ -34,20 +34,20 @@
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
-    line-height: 24px;
+    line-height: 1;
     color: #253C68;
-    z-index: 2;
+    z-index: 5;
+    display: flex;
+    align-items: center; 
 }
 
 
 #facebook {
     width: 20px;
     margin-left: 150px;
-    z-index: 2;
 }
 
 #instagram {
-    z-index: 2;
     width: 20px;
     margin-left: 190px;    
 }
@@ -55,7 +55,6 @@
 #twitter {
     width: 20px;
     margin-left: 230px;    
-    z-index: 2;
 }
 
 
@@ -66,7 +65,6 @@
   background: #2C437E;
   border-radius: 5px;
   margin-left: 300px;    
-  z-index: 2;
 }
 
 #share {
@@ -83,7 +81,6 @@
 
   color: #FFFFFF;
   margin-left: 315px;    
-  z-index: 2;
 }
 
 
@@ -100,7 +97,6 @@
     font-size: 22px;
     line-height: 24px; 
     color: #253C68;
-    z-index: 2;
 }
 .news-image {
     position: absolute;
@@ -110,17 +106,15 @@
     top: 317px;
     background: url(image.png);
     border-radius: 10px;
-    z-index: 2;
 }
 .news-rectangle {
     width: 1100px;
     height: 1070px;
     left: calc(50% - 1100px/2);
-    top: 213px;    
+    top: 213px;
     background: #FFFFFF;
     box-shadow: 7px 7px 20px rgba(34, 57, 117, 0.25);
     border-radius: 5px;
-    z-index: 1;
 }
 
 .wrapper {

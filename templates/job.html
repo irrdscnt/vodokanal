@@ -11,10 +11,29 @@
 </head>
 <body>
     <div class="wrapper">
+        <header class="header d-flex">
+            <div class="logo">
+              <a href="{% url 'main_page' %}">
+                <img src="/images/svg/logo.svg" alt="logo" />
+              </a>
+            </div>
+            <nav class="nav d-flex">
+                <a href="{% url 'news_list' %}">Новости</a>
+                <a href="{% url 'job_list' %}">Вакансии</a>
+                <a href="{% url 'contacts_page' %}">Контакты</a>
+                <a href="{% url 'photo_gallery' %}">Фотогалерея</a>
+                <a href="">Абонентский отдел</a>
+            </nav>
+            <div class="burger-menu">
+              <a href="">
+                <img src="/images/svg/burger-menu.svg" alt="burger-menu" />
+              </a>
+            </div>
+        </header>
         <main class="content">
             <div class="jobs__wrapper">
                 <div class="wrapper_">
-                    <h1 class="jobs__title">Вакансии</h1>                    
+                    <h1 class="jobs__title">Вакансии</h1>
                 </div>
             </div>
             <div class="jobs__search">
@@ -32,52 +51,31 @@
                 </div>
             </div>
             <div class="jobs jobb">
-                <div class="job__item">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                    <button class="job__title jobb-btn">
-                        <div class="job__title-flex">
-                            Дорожный рабочий
-                        <img src="/images/svg/arrow.svg" alt="">
-                        </div>
-                    </button>
-                    <div class="job__wrapper-info jobb-content">
-                        <div class="job__info">Требования</div>   
+                {% for job in jobs %}
+                    <div class="job__item">
+                        <button class="job__title jobb-btn" data-job-id="{{ job.id }}">
+                            <div class="job__title-flex">
+                                {{ job.title }}
+                                <img src="/images/svg/arrow.svg" alt="">
+                            </div>
+                        </button>
+                        <div class="job__wrapper-info jobb-content" data-job-id="{{ job.id }}">
+                        <div class="job__info">Требования</div>
                         <ul>
-                            <li>Без требований к образованию</li>
-                            <li>Готовы рассмотреть кандидатов без опыта работы;</li>
-                            <li>Готовность к разъездному характеру работы на открытом воздухе.</li>
+                            <li>{{ job.requirement1 }}</li>
+                            <li>{{ job.requirement2 }}</li>
+                            <li>{{ job.requirement3 }}</li>
                         </ul>
-                        <div class="job__info">Зарплата</div>    
-                        <div class="job__info-t">От 35 000 сом</div>   
-                        <div class="job__info">Контакты</div>  
-                        <div class="job__info-t">+996 700809098</div>             
-                    </div>
-                </div>
-                <div class="job__item">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                    <button class="job__title jobb-btn">
-                        <div class="job__title-flex">
-                            Дорожный рабочий
-                        <img src="/images/svg/arrow.svg" alt="">
+                        <div class="job__info">Зарплата</div>
+                        <div class="job__info-t">{{ job.salary }}</div>
+                        <div class="job__info">Контакты</div>
+                        <div class="job__info-t">{{ job.contact }}</div>
                         </div>
-                    </button>
-                    <div class="job__wrapper-info jobb-content">
-                        <div class="job__info">Требования</div>   
-                        <ul>
-                            <li>Без требований к образованию</li>
-                            <li>Готовы рассмотреть кандидатов без опыта работы;</li>
-                            <li>Готовность к разъездному характеру работы на открытом воздухе.</li>
-                        </ul>
-                        <div class="job__info">Зарплата</div>    
-                        <div class="job__info-t">От 35 000 сом</div>   
-                        <div class="job__info">Контакты</div>  
-                        <div class="job__info-t">+996 700809098</div>             
                     </div>
-                </div>
+                {% endfor %}
             </div>
         </main>
     </div>
-    <script src="./js/job.js"></script>
-
+    <script src="/static/js/job.js"></script>
 </body>
 </html>

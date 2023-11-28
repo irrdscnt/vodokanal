@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/static/base.css" rel="stylesheet">
-    <link href="/static/main.css" rel="stylesheet">
+    <link href="/static/news.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -18,7 +18,9 @@
                     <div class="_container">
                         <div class="header__box">
                             <div class="header__logo">
-                                <img src="/images/img/suu.png">
+                                <a href="{% url 'main_page' %}">
+                                    <img src="/images/img/suu.png">
+                                </a>
                             </div>
                             <hr class="hr">
                             <div class="logotext">
@@ -26,11 +28,11 @@
                                 <h2>Токмок</h2>
                             </div>
                             <ul class="header__list">
-                                <li><a href="#">Новости</a></li>
-                                <li><a href="#">Вакансии</a></li>
-                                <li><a href="#">Контакты</a></li>
-                                <li><a href="#">Фотогалерея</a></li>
-                                <li><a href="#">Абонентский отдел</a></li>
+                                  <li><a href="{% url 'news_list' %}">Новости</a></li>
+                                  <li><a href="{% url 'job_list' %}">Вакансии</a></li>
+                                  <li><a href="{% url 'contacts_page' %}">Контакты</a></li>
+                                  <li><a href="{% url 'photo_gallery' %}">Фотогалерея</a></li>
+                                  <li><a href="#">Абонентский отдел</a></li>
                             </ul> <!-- </nav> -->
                             <div class="header__burger">
                                 <img src="/images/img/burger.png">
@@ -51,88 +53,31 @@
             <section class="search__section">
                 <form class="search d-flex">
                     <input class="search-input" type="text" placeholder="Поиск по сайту"/>
-                    <img class="search-png" src="search.png"/>
+                    <img class="search-png" src="/images/svg/search.svg"/>
                 </form>
             </section>
-            <div class="__container">
-                <div class="allcontainers">
-                    <div class="box7">
-                        <div class="box8">  <!-- first container - start -->
-                            <img class="news1" src="/images/svg/image4.svg">
-                            <div class="box9">
-                                <hr class="box10">
-                                <div class="newsdate">
-                                    <h3>26 июня 2023</h3>
-                                </div>
+            <div class="allcontainers">
+                <div class="news-container">
+                    {% for news in news_list %}
+                        <div class="box7">
+                            <div class="box8">
+                                <a href="{% url 'news_detail' pk=news.pk %}">
+                                    <!-- Link to the news_detail view with the news' primary key (pk) -->
+                                    <img class="news1" src="{{ news.image.url }}" alt="{{ news.title }}">
+                                    <div class="box9">
+                                        <hr class="box10">
+                                        <div class="newsdate">
+                                            <h3>{{ news.date }}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="box11">
+                                        <h2>{{ news.title }}</h2>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="box11">
-                                <h2>Отключение горячей воды</h2>
-                            </div>
-                        </div> <!-- first container - end -->
-                        <div class="box8">  <!-- second container - start -->
-                            <img class="news1" src="/images/svg/image4.svg">
-                            <div class="box9">
-                                <hr class="box10">
-                                <div class="newsdate">
-                                    <h3>26 июня 2023</h3>
-                                </div>
-                            </div>
-                            <div class="box11">
-                                <h2>Отключение горячей воды</h2>
-                            </div>
-                        </div><!-- second container - end -->
-                        <div class="box8"><!-- third container - start -->
-                            <img class="news1" src="/images/svg/image4.svg">
-                            <div class="box9">
-                                <hr class="box10">
-                                <div class="newsdate">
-                                    <h3>26 июня 2023</h3>
-                                </div>
-                            </div>
-                            <div class="box11">
-                                <h2>Отключение горячей воды</h2>
-                            </div>
-                        </div> <!-- third container - end -->
-                    </div>
-                    <div class="box7">
-                        <div class="box8">  <!-- first container - start -->
-                            <img class="news1" src="/images/svg/image4.svg">
-                            <div class="box9">
-                                <hr class="box10">
-                                <div class="newsdate">
-                                    <h3>26 июня 2023</h3>
-                                </div>
-                            </div>
-                            <div class="box11">
-                                <h2>Отключение горячей воды</h2>
-                            </div>
-                        </div> <!-- first container - end -->
-                        <div class="box8">  <!-- second container - start -->
-                            <img class="news1" src="/images/svg/image4.svg">
-                            <div class="box9">
-                                <hr class="box10">
-                                <div class="newsdate">
-                                    <h3>26 июня 2023</h3>
-                                </div>
-                            </div>
-                            <div class="box11">
-                                <h2>Отключение горячей воды</h2>
-                            </div>
-                        </div><!-- second container - end -->
-                        <div class="box8"><!-- third container - start -->
-                            <img class="news1" src="/images/svg/image4.svg">
-                            <div class="box9">
-                                <hr class="box10">
-                                <div class="newsdate">
-                                    <h3>26 июня 2023</h3>
-                                </div>
-                            </div>
-                            <div class="box11">
-                                <h2>Отключение горячей воды</h2>
-                            </div>
-                        </div>  <!-- third container - end -->
-                    </div>
-                </div>   <!-- allcontainer - end -->
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </main>
         <footer class="footer">
@@ -164,82 +109,5 @@
             </div>
         </footer>
     </div>
-</body>
-</html>
-=======
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Токмок водоканал</title>
-    <link rel="stylesheet" type="text/css" href="./styles/news.css">
-</head>
-<body>
-    <header class="header d-flex">
-        <div class="logo">
-          <a href="">
-            <img src="./images/svg/logo.svg" alt="logo" />
-          </a>
-        </div>
-        <nav class="nav d-flex">
-          <a href="">Новости</a>
-          <a href="">Вакансии</a>
-          <a href="">Контакты</a>
-          <a href="">Фотогалерея</a>
-          <a href="">Абонентский отдел</a>
-        </nav>
-        <div class="burger-menu">
-          <a href="">
-            <img src="./images/svg/burger-menu.svg" alt="burger-menu" />
-          </a>
-        </div>
-    </header>
-    <main>
-      <div class="wrapper">      
-        <h1 class="news-title">КАНАЛИЗАЦИЯЛЫК КОЛЛЕКТОРДУ ТУРГУЗУУ ИШТЕРИ УЛАНТЫЛЫП ЖАТАТ</h1>
-        <img class="news-image" src="https://bishkeksuukanal.kg/images/283/photo_2023-09-21_14-54-36.jpg" alt="Аналитика компании за 2007 год" width="320" height="240">
-        <div class="news-rectangle"></div>
-        <div class="item" id="date">06.09.2023</div>
-        <div class="item-container">
-          <a href="https://www.facebook.com/" target="_blank">
-              <img class="item" id="facebook" src="./images/svg/uil_facebook-f.svg" alt="facebook">
-          </a>
-          <a href="https://www.instagram.com/" target="_blank">
-              <img class="item" id="instagram" src="./images/svg/ri_instagram-fill.svg" alt="instagram">
-          </a>
-          <a href="https://twitter.com/home" target="_blank">
-              <img class="item" id="twitter" src="./images/svg/bi_twitter.svg" alt="twitter">
-          </a>
-        </div>
-        <div class="item" id="share-rectangle"></div>
-        <a class="item" id="share">Поделиться</a>
-        <div class="news-text">
-СОТРУДНИКИ ПЭУ "БИШКЕКВОДОКАНАЛ" ПРОДЕМОНСТРИРОВАЛИ ВЫСОКИЙ ПРОФЕССИОНАЛИЗМ, СТОЛКНУВШИСЬ С АВАРИЕЙ НА СЕТЯХ ВОДОПРОВОДА НА ПЕРЕСЕЧЕНИИ УЛИЦ: АНКАРА И АУЭЗОВА. СИТУАЦИЯ ТРЕБОВАЛА НЕМЕДЛЕННОГО РЕАГИРОВАНИЯ И ЧРЕЗВЫЧАЙНЫХ УСИЛИЙ ДЛЯ УСТРАНЕНИЯ НЕПОЛАДОК И ВОССТАНОВЛЕНИЯ НОРМАЛЬНОГО ВОДОСНАБЖЕНИЯ В РАЙОНЕ.
-
-БРИГАДА СЛУЖБЫ ВОДОСНАБЖЕНИЯ ВЫЯВИЛА СЕРЬЕЗНЫЕ ПОВРЕЖДЕНИЯ ВОДОПРОВОДНОЙ СЕТИ. ВОДА БИЛА ИЗ-ПОД ЗЕМЛИ, СОЗДАВАЯ УГРОЗУ ДЛЯ ДОРОЖНОГО ДВИЖЕНИЯ И ОКРУЖАЮЩЕЙ ИНФРАСТРУКТУРЫ.
-
-ДВЕ БРИГАДЫ РАБОТАЛИ КРУГЛОСУТОЧНО, СМЕНЯЯ ДРУГ ДРУГА. СПЕЦИАЛИСТЫ ПРОВЕЛИ СЛОЖНЫЕ РЕМОНТНЫЕ РАБОТЫ, ЗАМЕНЯЯ ПОВРЕЖДЕННЫЕ УЧАСТКИ ТРУБОПРОВОДОВ И ВОССТАНАВЛИВАЯ СИСТЕМУ.
-
-В КРАТЧАЙШИЕ СРОКИ АВАРИЯ БЫЛА УСПЕШНО УСТРАНЕНА, И ВОДОСНАБЖЕНИЕ В РАЙОНЕ БЫЛО ВОССТАНОВЛЕНО.
-
-СОТРУДНИКИ ПЭУ "БИШКЕКВОДОКАНАЛ" ЗАСЛУЖИВАЮТ ИСКРЕННЕЙ БЛАГОДАРНОСТИ ЗА СВОЙ НЕОЦЕНИМЫЙ ВКЛАД В ОБЕСПЕЧЕНИЕ НАДЕЖНОГО ВОДОСНАБЖЕНИЯ В ГОРОДЕ И ЗА СВОЮ СПОСОБНОСТЬ ЭФФЕКТИВНО СПРАВЛЯТЬСЯ С ЧРЕЗВЫЧАЙНЫМИ СИТУАЦИЯМИ.
-
-        </div> 
-      </div>
-    <footer class="footer d-flex">
-      <img src="./images/svg/footerLogo.svg" alt="logo" />
-      <div class="address d-flex">
-        <span>Адрес</span>
-        <p>Ворошилова 51, Токмок</p>
-      </div>
-      <div class="phone d-flex">
-        <span>Телефон</span>
-        <p>+9962228905950</p>
-      </div>
-      <div class="insta d-flex">
-        <span>Instagram</span>
-        <p>@mp_tokmok_vodokanal</p>
-      </div>
-    </footer>
 </body>
 </html>
